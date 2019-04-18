@@ -39,6 +39,10 @@
 	cursor: pointer;
 }
 
+.calc-button{
+	border: solid grey 1px;
+}
+
 .calc-button:hover{
 	background-color: rgb(200, 200, 200);
 }
@@ -133,12 +137,14 @@
 .calc-button:nth-child(17){
 	grid-area: zero-area;
 	position: relative;
+	border-radius: 0 0 0 5px;
 }
 .calc-button:nth-child(18){
 	grid-area: decimal-area;
 }
 .calc-button:nth-child(19){
 	grid-area: equals-area;
+	border-radius: 0 0 5px 0;
 }
 
 /* Zero Styling */
