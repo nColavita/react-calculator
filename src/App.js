@@ -1,28 +1,23 @@
+// React Core
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
+// Custom Components
+import Calculator from '../src/components/Calculator';
+
+// Styling
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className="App">
+				<h2 id="title">React Calculator</h2>
+				<div id="container">
+					<Calculator />
+				</div>
+			</div>
+		);
+	}
 }
 
 export default App;
