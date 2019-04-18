@@ -34,9 +34,6 @@
 	grid-template-columns: 65px 65px 65px 65px;
 	grid-template-rows: 60px 60px 60px 60px 60px;
 }
-.calculator{
-	/* grid-template-areas */
-}
 
 .calculator div{
 	cursor: pointer;
@@ -45,10 +42,13 @@
 .calc-button:hover{
 	background-color: rgb(200, 200, 200);
 }
-.calc-button:nth-child(4),.calc-button:nth-child(8), .calc-button:nth-child(12), .calc-button:nth-child(16), .calc-button:nth-child(19){
-	background-color: rgb(238, 135, 1);
+.calc-button:nth-child(4), .calc-button:nth-child(8), .calc-button:nth-child(12), .calc-button:nth-child(16), .calc-button:nth-child(19){
+	background-color: rgb(238, 135, 0);
 	color: white;
-} 
+}
+.calc-button:nth-child(4):hover, .calc-button:nth-child(8):hover, .calc-button:nth-child(12):hover, .calc-button:nth-child(16):hover, .calc-button:nth-child(19):hover{
+	background-color: rgb(221, 125, 0);
+}
 
 .calc-button-value{
 	pointer-events: none;	
@@ -72,4 +72,77 @@
 	font-size: 3em;
 }
 
-/* Button Colors */
+/* Button GRID */
+.calculator{
+	grid-template-areas:
+	"clear-area plusminus-area operand-area divide-area"
+	"seven-area eight-area nine-area multiply-area"
+	"four-area five-area six-area minus-area"
+	"one-area two-area three-area plus-area"
+	"zero-area zero-area decimal-area equals-area"
+}
+
+.calc-button:nth-child(1){
+	grid-area: clear-area;
+}
+.calc-button:nth-child(2){
+	grid-area: plusminus-area;
+}
+.calc-button:nth-child(3){
+	grid-area: operand-area;
+}
+.calc-button:nth-child(4){
+	grid-area: divide-area;
+}
+.calc-button:nth-child(5){
+	grid-area: seven-area;
+}
+.calc-button:nth-child(6){
+	grid-area: eight-area;
+}
+.calc-button:nth-child(7){
+	grid-area: nine-area;
+}
+.calc-button:nth-child(8){
+	grid-area: multiply-area;
+}
+.calc-button:nth-child(9){
+	grid-area: four-area;
+}
+.calc-button:nth-child(10){
+	grid-area: five-area;
+}
+.calc-button:nth-child(11){
+	grid-area: six-area;
+}
+.calc-button:nth-child(12){
+	grid-area: minus-area;
+}
+.calc-button:nth-child(13){
+	grid-area: one-area;
+}
+.calc-button:nth-child(14){
+	grid-area: two-area;
+}
+.calc-button:nth-child(15){
+	grid-area: three-area;
+}
+.calc-button:nth-child(16){
+	grid-area: plus-area;
+}
+.calc-button:nth-child(17){
+	grid-area: zero-area;
+	position: relative;
+}
+.calc-button:nth-child(18){
+	grid-area: decimal-area;
+}
+.calc-button:nth-child(19){
+	grid-area: equals-area;
+}
+
+/* Zero Styling */
+.calc-button:nth-child(17) h4{
+	position: absolute;
+	left: 27px;
+}

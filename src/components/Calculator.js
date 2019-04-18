@@ -28,7 +28,7 @@ class Calculator extends Component{
 
 	showResultArea = () => {
 		return(
-			this.state.evaluation
+			this.state.result
 		)
 	}
 
@@ -59,7 +59,6 @@ class Calculator extends Component{
 				</div>
 				<div id="panel">
 					<h2>Evaluation: {this.state.evaluation}</h2>
-					<h2>Result: {this.state.result}</h2>
 				</div>
 			</div>
 		);
