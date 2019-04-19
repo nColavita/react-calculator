@@ -4,8 +4,8 @@ import Button from '../components/Button';
 class Calculator extends Component{
 	state = {
 		evaluation: "",
-		result: null,
-		screen: null
+		result: 0,
+		currentumber: 0
 	}
 
 	onCalcButtonClick = (e) => {
@@ -21,12 +21,12 @@ class Calculator extends Component{
 		}else if(e.target.id === "C"){
 			this.setState({
 				evaluation: "",
-				result: null
+				result: 0
 			})
 		}
 	}
 
-	showResultArea = () => {
+	displayCalcInput = () => {
 		return(
 			this.state.result
 		)
@@ -52,7 +52,7 @@ class Calculator extends Component{
 		return (
 			<div id="container-calc">
 				<div className="result">
-					<p>{this.showResultArea()}</p>
+					<p>{this.displayCalcInput()}</p>
 				</div>
 				<div className="calculator">
 					{this.createCalcButtons()}
