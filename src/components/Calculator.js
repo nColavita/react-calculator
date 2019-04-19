@@ -4,32 +4,71 @@ import Button from '../components/Button';
 class Calculator extends Component{
 	state = {
 		evaluation: "",
-		result: 0,
-		currentumber: 0
+		currentnum: "0",
+		result: "",
+		expression_click_count: 0,
+		isEqual: false
 	}
 
 	onCalcButtonClick = (e) => {
-		console.log(e.target.id);
-		if(e.target.id !== "=" && e.target.id !== "C" && e.target.id !== "+/-"){
+		const input = e.target.id;
+		console.log(input);
+
+		if( !parseInt(input) ){
+			// input is an expression
 			this.setState({
-				evaluation: this.state.evaluation + e.target.id
-			});
-		}else if(e.target.id === "="){
-			this.setState({
-				result: eval(this.state.evaluation)
+				currentnum: ""
 			})
-		}else if(e.target.id === "C"){
-			this.setState({
-				evaluation: "",
-				result: 0
-			})
+			if( input === "=" ){
+				// evaluate current evaluation string
+				this.setState({
+					result: eval(this.state.evaluation),
+					isEqual: true
+				})
+			}
+			if( input === "C" ){
+				// reset to default state values
+				this.setState({
+					result: "",
+					evaluation: "",
+					currentnum: "0",
+					isEqual: false,
+					expression_click_count: 0
+				})
+			}
+			if(this.state.expression_click_count < 1 && input !== "C" && input !== "="){
+				// if an expression other than equals or clear are hit
+				this.setState({
+					expression_click_count: this.state.expression_click_count + 1,
+					evaluation: this.state.evaluation + input
+				})
+			}else{
+				this.setState({
+					result: eval(this.state.evaluation),
+					expression_click_count: 0,
+				})
+			}
 		}
+
+		if( parseInt(input) ){
+			// input is a number
+			this.setState({
+				currentnum: this.state.currentnum + input,
+				evaluation: this.state.evaluation + input
+			})
+		}		
 	}
 
 	displayCalcInput = () => {
-		return(
-			this.state.result
-		)
+		if(this.state.isEqual){
+			return(
+				this.state.result
+			)
+		}else{
+			return(
+				this.state.currentnum
+			)
+		}
 	}
 
 	createCalcButtons() {
@@ -58,7 +97,9 @@ class Calculator extends Component{
 					{this.createCalcButtons()}
 				</div>
 				<div id="panel">
+					<h2>Current Num: {this.state.currentnum}</h2>
 					<h2>Evaluation: {this.state.evaluation}</h2>
+					<h2>Result: {this.state.result}</h2>
 				</div>
 			</div>
 		);
